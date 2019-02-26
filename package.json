@@ -1,0 +1,16 @@
+{
+  "name": "learning_projects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d css_grid_and_flexbox"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://rutasip.github.io/learning_projects",
+  "dependencies": {
+    "gh-pages": "^2.0.1"
+  }
+}
