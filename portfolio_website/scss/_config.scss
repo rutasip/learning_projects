@@ -1,0 +1,74 @@
+//Creates variables. Can use them later in the code.
+//$primary-color: #444; will be later used as $primary-color
+$primary-color: #444;
+$secondary-color: #eece1a;
+$show-home-image: true;
+$home-image: url('../img/background.jpg');
+$background-opacity: 0.9;
+
+//@mixin is almost like a function. To use it, write: @include easeOut();
+@mixin easeOut {
+    //Transitions are taking time to do something. For example: fading, maving aroundm changing color, opacity.
+    //'all' includes everything that is transitionable.
+    transition: all 0.5s ease-out;
+}
+
+@mixin background {
+    // Loads background image only if $show-home-image is true
+    @if $show-home-image {
+        &#bg-img {
+            background: $home-image;
+            background-attachment: fixed;
+            background-size: cover;
+
+            // :after is a pseudo-element. Must use with content.
+            &:after {
+                content: '';
+                //Covers the whole body with an overlay
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                //Pushes overlay behind the text
+                z-index: -1;
+                background: rgba($primary-color, $background-opacity);
+            }
+        }
+    }
+}
+
+// Set Text Color
+@function set-text-color($color) {
+    @if (lightness($color) > 40) {
+        @return #000;
+    } @else {
+        @return #fff;
+    }
+}
+
+
+// Media Query Mixins
+@mixin mediaSm {
+    @media screen and (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin mediaMd {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mediaLg {
+    @media screen and (min-width: 769px) and (max-width: 1170px) {
+        @content;
+    }
+}
+
+@mixin mediaXl {
+    @media screen and (min-width: 1171px) {
+        @content;
+    }
+}
