@@ -1,0 +1,30 @@
+1. Create package.json
+Terminal -> $ npm init -> add information I want, else enter.
+
+2. Install sass
+$ npm i node-sass
+
+3. Edit package.json
+from
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
+
+to (example)
+"scripts": {
+  "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+},
+
+4. $ npm run sass
+
+5. main.scss -> add:
+$primary-color: #444;
+
+body {
+    background: $primary-color;
+}
+-> save.
+
+The compiled file is now css/main.css. DON'T MODIFY MAIN.CSS FILE.
+
+6. Add <link rel="stylesheet" href="css/main.css"> to index.html.
